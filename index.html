@@ -8,15 +8,38 @@
   <script>
   var rps = ["rock","paper","scissor"];
   function computerPlay() {
-    console.log(rps[Math.floor(Math.random()*3)]);
+    return (rps[Math.floor(Math.random()*3)]);
   }
 
-  computerPlay();
-/*
-  function playRound(playerSelection, computerSelection) { //takes 2 parameters and return a string declaring the winner of the round *note:player selection should be case insensitive
+  function playRound(playerSelection, computerSelection) {
+    playerSelection.toLowerCase();
+    if (playerSelection == "rock" && computerSelection == "scissor") {
+      return "Rock smashes scissor to pieces, Player wins!";
+    }
+    else if (playerSelection == "rock" && computerSelection == "paper") {
+      return "Paper wraps rock then suffocates it, Player lost :(";
+    }
+    else if (playerSelection == "paper" && computerSelection == "rock") {
+      return "Paper wraps rock then suffocates it, Player wins!";
+    }
+    else if (playerSelection == "paper" && computerSelection == "scissor") {
+      return "Scissor cuts out an L from the paper, which stands for loser, Player lost :(";
+    }
+    else if (playerSelection == "scissor" && computerSelection == "rock") {
+      return "Rock smashes scissor to pieces, Player lost :(";
+    }
+    else if (playerSelection == "scissor" && computerSelection == "paper") {
+      return "Scissor cuts out an L from the paper, which stands for loser, Player wins";
+    }
+    else if (playerSelection == computerSelection) {
+      return "Great minds think alike";
+    }
+    else {
+      return "its either ROCK, PAPER, or SCISSOR";
+    }//takes 2 parameters and return a string declaring the winner of the round *note:player selection should be case insensitive
   }
 
   function game() { //use playRound inside this to play 5 rounds keeping score and reports the winner and loser at the end
-  }*/
+  }
   </script>
 </body>
