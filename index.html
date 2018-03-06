@@ -70,6 +70,15 @@
       console.log(playRound(playerSelection,computerSelection));
     }
 
+    if (player > computer) {
+      console.log("The grand winner is Player!");
+    }
+    else if (computer > player) {
+      console.log("The grand winner is Computer!");
+    }
+    else {
+      console.log("boohoo draw");
+    }
   }
 
   game();
