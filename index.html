@@ -6,63 +6,33 @@
 </head>
 <body>
   <script>
-  var rps = ["rock","paper","scissor"];
+  var selection = ["rock","paper","scissor"];
   var player = 0;
   var computer = 0;
 
-
-
   function computerPlay() {
-    return (rps[Math.floor(Math.random()*3)]);
+    return (selection[Math.floor(Math.random()*3)]);
   }
+
+  function playRound(playerSelection, computerSelection) {
+    playerSelection.toLowerCase();
+    if (playerSelection === computerSelection) {
+      return 'draw';
+    }
+    else if ((playerSelection === 'rock' && computerSelection === 'scissor') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissor' && computerSelection === 'paper')) {
+      return 'player wins';
+    }
+    else {
+      return 'player loses';
+    }
+  }
+
 
   function game() {
     var gameCount = 0;
 
     while (gameCount < 5) {
-      function playRound(playerSelection, computerSelection) {
-        playerSelection.toLowerCase();
-        if (playerSelection == "rock" && computerSelection == "scissor") {
-          player++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Rock smashes scissor to pieces, Player wins!"+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == "rock" && computerSelection == "paper") {
-          computer++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Paper wraps rock then suffocates it, Player lost :("+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == "paper" && computerSelection == "rock") {
-          player++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Paper wraps rock then suffocates it, Player wins!"+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == "paper" && computerSelection == "scissor") {
-          computer++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Scissor cuts out an L from the paper, which stands for loser, Player lost :("+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == "scissor" && computerSelection == "rock") {
-          computer++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Rock smashes scissor to pieces, Player lost :("+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == "scissor" && computerSelection == "paper") {
-          player++;
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Scissor cuts out an L from the paper, which stands for loser, Player wins"+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else if (playerSelection == computerSelection) {
-          gameCount++;
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"Great minds think alike"+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-        else {
-          return "You:"+playerSelection+"\n"+"Computer:"+computerSelection+"\n"+"its either ROCK, PAPER, or SCISSOR"+"\n\n"+"Player score: "+player+"  Computer score: "+computer;
-        }
-
-
-
-      }
+      playRound;
       var playerSelection = window.prompt("Are you ready to rock, paper, and scissor?", 'Type "rock", "paper", or "scissor"');
 
       var computerSelection = computerPlay();
