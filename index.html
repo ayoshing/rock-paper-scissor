@@ -1,57 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Rock Paper Scissor</title>
   <meta charset="utf-8">
+  <link href="style/style.css" rel="stylesheet">
 </head>
 <body>
-  <script>
-  var selection = ["rock","paper","scissor"];
-  var player = 0;
-  var computer = 0;
+  <header>
+    <h1>Rock Paper Scissors</h1>
+  </header>
 
-  function computerPlay() {
-    return (selection[Math.floor(Math.random()*3)]);
-  }
+  <div class="score-board">
+    <div id="player-label" class="badge">player</div>
+    <div id="comp-label" class="badge">comp</div>
+    <span id="player-score">0</span>:<span id="comp-score">0</span>
+  </div>
 
-  function playRound(playerSelection, computerSelection) {
-    playerSelection.toLowerCase();
-    if (playerSelection === computerSelection) {
-      return 'draw';
-    }
-    else if ((playerSelection === 'rock' && computerSelection === 'scissor') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissor' && computerSelection === 'paper')) {
-      return 'player wins';
-    }
-    else {
-      return 'player loses';
-    }
-  }
+  <div class="result">
+    <p>Are you ready?</p>
+  </div>
 
+  <div class="choices">
+    <div class="choice hover" id="r">
+      <img src="img/rock.jpg" alt="">
+    </div>
+    <div class="choice hover" id="p">
+      <img src="img/paper.jpg" alt="">
+    </div>
+    <div class="choice hover" id="s">
+      <img src="img/scissor.jpg" alt="">
+    </div>
+  </div>
 
-  function game() {
-    var gameCount = 0;
-
-    while (gameCount < 5) {
-      playRound;
-      var playerSelection = window.prompt("Are you ready to rock, paper, and scissor?", 'Type "rock", "paper", or "scissor"');
-
-      var computerSelection = computerPlay();
-
-      console.log(playRound(playerSelection,computerSelection));
-    }
-
-    if (player > computer) {
-      console.log("The grand winner is Player!");
-    }
-    else if (computer > player) {
-      console.log("The grand winner is Computer!");
-    }
-    else {
-      console.log("boohoo draw");
-    }
-  }
-
-  game();
-
-  </script>
+  <p id="action-msg">First to win five. Let's go!</p>
+  <script src="script/rps.js"></script>
 </body>
