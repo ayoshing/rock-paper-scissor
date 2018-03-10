@@ -71,6 +71,26 @@ img {
 .hover:hover {
   background: #24272e;
   cursor: pointer;
+  transform: scale(1.1);
+}
+
+.play {
+  text-align: center;
+}
+
+.again {
+  text-align: center;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  margin-top: 30px;
+  transition: all 0.5s ease;
+}
+
+.again:hover {
+  cursor: pointer;
+  transform: scale(1.5);
 }
 
 #player-label {

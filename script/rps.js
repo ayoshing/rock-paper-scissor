@@ -7,6 +7,7 @@ const resultDiv = document.querySelector('.result');
 const rockDiv = document.getElementById('r');
 const paperDiv = document.getElementById('p');
 const scissorDiv = document.getElementById('s');
+const actionMsgDiv = document.getElementById('action-msg');
 
 function computerPlay() {
   const selections = ["r","p","s"];
@@ -36,6 +37,7 @@ function win(player, comp) {
   document.getElementById(player).classList.add('green-glow');
   setTimeout(() => document.getElementById(player).classList.remove('green-glow'), 500);
   setTimeout(() => document.getElementById(player).classList.add('hover'), 700);
+  gameCheck();
 }
 
 function lose(player, comp) {
@@ -47,6 +49,7 @@ function lose(player, comp) {
   document.getElementById(player).classList.add('red-glow');
   setTimeout(() => document.getElementById(player).classList.remove('red-glow'), 500);
   setTimeout(() => document.getElementById(player).classList.add('hover'), 700);
+  gameCheck();
 }
 
 function draw(player, comp) {
@@ -80,12 +83,20 @@ function game(playerSelection, compSelection) {
     }
 }
 
-function main() {
+function gameCheck() {
+  if (playerScore == 5) {
+    actionMsgDiv.innerHTML = 'You won!';
+  }
+  else if (compScore == 5) {
+    actionMsgDiv.innerHTML = 'You lost, better luck next time.';
+  }
+}
+
+
+function playRound() {
   rockDiv.addEventListener('click', () => game('r'));
-
   paperDiv.addEventListener('click', () => game('p'));
-
   scissorDiv.addEventListener('click', () => game('s'));
 }
 
-main();
+playRound();
