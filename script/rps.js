@@ -8,6 +8,7 @@ const rockDiv = document.getElementById('r');
 const paperDiv = document.getElementById('p');
 const scissorDiv = document.getElementById('s');
 const actionMsgDiv = document.getElementById('action-msg');
+const playAgain = document.querySelector('.play-again button');
 
 function computerPlay() {
   const selections = ["r","p","s"];
@@ -86,17 +87,48 @@ function game(playerSelection, compSelection) {
 function gameCheck() {
   if (playerScore == 5) {
     actionMsgDiv.innerHTML = 'You won!';
+    playAgain.style.display = 'initial';
+    return;
   }
   else if (compScore == 5) {
     actionMsgDiv.innerHTML = 'You lost, better luck next time.';
+    playAgain.style.display = 'initial';
+    return;
   }
+}
+
+function resetGame() {
+  playerScore = 0;
+  compScore = 0;
+  playerScoreSpan.innerHTML = playerScore;
+  compScoreSpan.innerHTML = compScore;
+  playAgain.style.display = 'none';
 }
 
 
 function playRound() {
-  rockDiv.addEventListener('click', () => game('r'));
-  paperDiv.addEventListener('click', () => game('p'));
-  scissorDiv.addEventListener('click', () => game('s'));
+  playAgain.addEventListener('click', () => resetGame());
+  rockDiv.addEventListener('click', () => {
+    if (playerScore == 5 || compScore == 5) {
+      return;
+    } else {
+      game('r');
+    }
+  });
+  paperDiv.addEventListener('click', () => {
+    if (playerScore == 5 || compScore == 5) {
+      return;
+    } else {
+      game('p');
+    }
+  });
+  scissorDiv.addEventListener('click', () => {
+    if (playerScore == 5 || compScore == 5) {
+      return;
+    } else {
+      game('s');
+    }
+  });
 }
 
 playRound();

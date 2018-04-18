@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Asap');
 
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -74,23 +74,27 @@ img {
   transform: scale(1.1);
 }
 
-.play {
+.play-again {
+  margin: 0 auto;
   text-align: center;
 }
 
-.again {
-  text-align: center;
+.play-again > button {
+  background: none;
+  margin-top: 30px;
+  padding: 10px;
+  border: black solid 2px;
   font-family: Asap, sans-serif;
   font-weight: bold;
-  color: black;
-  font-size: 20px;
-  margin-top: 30px;
-  transition: all 0.5s ease;
+  font-size: 30px;
+  border-radius: 5%;
+  transition: all 0.1s ease-out;
+  display: none;
 }
 
-.again:hover {
+.play-again > button:hover {
   cursor: pointer;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 #player-label {
