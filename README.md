@@ -2,6 +2,7 @@
 
 ## Gameplay
 https://ayoshing.github.io/rock-paper-scissor/
+
 A pure luck-based run-of-the-mill rock-paper-scissors game against the computer.
 
 The result of each round is indicated by a color glow surrounding your selection:
